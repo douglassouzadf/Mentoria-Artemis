@@ -289,6 +289,22 @@ a { color: inherit; }
 .rodape p { color: var(--fora); font-size: .85rem; }
 .rodape a { color: var(--dourado); text-decoration: none; font-family: var(--f-rotulo); letter-spacing: .1em; }
 
+/* 12) BOTÃO FLUTUANTE DO WHATSAPP */
+.whats {
+  position: fixed; z-index: 30;
+  right: calc(16px + env(safe-area-inset-right, 0px));
+  bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  display: inline-flex; align-items: center; gap: .55rem;
+  background: #1fa855; color: #fff; text-decoration: none;
+  font-family: var(--f-rotulo); font-weight: 600; letter-spacing: .08em; text-transform: uppercase; font-size: .85rem;
+  padding: .8rem 1.15rem; border-radius: 999px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.45);
+  transition: transform .2s, background .2s;
+}
+.whats:hover { background: #22c063; transform: translateY(-2px); }
+.whats svg { width: 20px; height: 20px; flex: none; }
+@media (max-width: 420px) { .whats span { display: none; } .whats { padding: .9rem; } }
+
 /* Aparecer ao rolar: o conteúdo já nasce visível; só ganha um leve deslize */
 .revelar { transition: transform .7s cubic-bezier(.2,.7,.2,1); }
 .revelar.baixo { transform: translateY(18px); }
@@ -351,7 +367,7 @@ a { color: inherit; }
     <div class="miolo">
       <p class="rotulo">A trajetória</p>
       <h2 class="titulo-secao">Cada prova foi um <em>disparo</em>. Nem todos acertaram.</h2>
-      <p class="intro">Jéssica Karolayne Araújo Ferreira Dias tem 28 anos, é mãe, formada em Direito e soldado da Polícia Militar de Minas Gerais. Agora, foi aprovada para o cargo de Policial Legislativo Federal da Câmara dos Deputados. Até aqui, foram oito anos de reprovações, provas canceladas, recursos negados e uma mudança de estado.</p>
+      <p class="intro">Jéssica Karolayne Araújo Ferreira Dias tem 28 anos, é mãe, formada em Direito e soldado da Polícia Militar de Minas Gerais. Agora, foi aprovada para o cargo de Policial Legislativo Federal da Câmara dos Deputados. Até aqui, foram oito anos de reprovações, provas canceladas, recursos negados e uma mudança de estado. A seguir, ela conta essa trajetória com as próprias palavras.</p>
       <div class="legenda" aria-hidden="true">
         <span><i class="tiro acerto"></i> Aprovação</span>
         <span><i class="tiro fora"></i> Fora do alvo</span>
@@ -361,64 +377,64 @@ a { color: inherit; }
       <ol class="tempo">
         <li class="revelar"><i class="tiro marco"></i>
           <span class="quando">2015 · Brasília</span>
-          <h3>O começo no Direito</h3>
-          <p>Jéssica ingressou na faculdade de Direito sem saber como funcionavam os concursos públicos, quais eram as bancas examinadoras ou como se preparar para uma prova.</p>
+          <h3>Tudo começou no Direito</h3>
+          <p>Entrei na faculdade de Direito em 2015, em Brasília. Naquela época, eu não fazia ideia de como funcionavam os concursos públicos nem sabia como me preparar para uma prova desse tipo.</p>
         </li>
         <li class="revelar"><i class="tiro fora"></i>
           <span class="quando">Março de 2018 · ABIN</span>
-          <h3>A primeira reprovação</h3>
-          <p>Aos 19 anos, estudando sozinha com uma apostila, enfrentou pela primeira vez uma prova do Cebraspe. Fez 37 pontos líquidos e não teve a redação corrigida. A frustração foi grande, mas ela decidiu tentar novamente.</p>
+          <h3>O primeiro “não”</h3>
+          <p>Aos 19 anos, me inscrevi no concurso da ABIN e estudei sozinha, com uma apostila. Quando o resultado saiu, procurei meu nome e não encontrei. Fiquei muito triste, mas, em vez de desistir, decidi tentar de novo.</p>
         </li>
         <li class="revelar"><i class="tiro fora"></i>
           <span class="quando">Maio de 2018 · PMDF</span>
-          <h3>Aprovada, mas sem o diploma</h3>
-          <p>Mesmo com a falta de energia no meio da prova, manteve a concentração e foi aprovada em todas as etapas, na 96ª colocação feminina, dentro da primeira turma. Porém, ainda faltavam seis meses para concluir a graduação. Ela recorreu administrativamente e, depois, duas vezes à Justiça, sem sucesso, e não pôde tomar posse.</p>
+          <h3>Tão perto da posse</h3>
+          <p>Durante a prova da Polícia Militar do DF, a luz acabou, e eu continuei concentrada. Passei em todas as etapas e fiquei dentro da primeira turma. Só que ainda faltavam seis meses para eu me formar e, sem o diploma, não pude tomar posse.</p>
         </li>
         <li class="revelar"><i class="tiro acerto"></i>
           <span class="quando">Goiás · temporário</span>
-          <h3>O primeiro contato com a segurança pública</h3>
-          <p>Aprovada como vigilante penitenciária temporária, com 27 acertos em 30 questões, teve o início adiado pela pandemia. Trabalhou três anos e meio em uma unidade prisional e, nas horas vagas, ajudava o pai na lanchonete. No concurso efetivo, ficou fora da correção da redação por apenas um ponto.</p>
+          <h3>Meu primeiro passo na segurança pública</h3>
+          <p>Fui aprovada como vigilante penitenciária temporária em Goiás. A pandemia adiou o início, mas, quando comecei, fiquei três anos e meio na unidade. Nas horas vagas, ajudava meu pai na lanchonete e seguia estudando, porque sabia que precisava de um cargo efetivo.</p>
         </li>
         <li class="revelar"><i class="tiro fora"></i>
           <span class="quando">Gravidez · 2021</span>
-          <h3>Provas que escaparam</h3>
-          <p>Grávida, viajou sozinha a Curitiba, mas a prova foi cancelada três horas antes do início. Depois, foi reprovada no DEPEN. A prova da PCDF acabou remarcada justamente para o dia em que a filha nasceu.</p>
+          <h3>Quando a vida mudou os planos</h3>
+          <p>Grávida, eu viajei sozinha até Curitiba para fazer a prova da PCPR, mas a prova foi cancelada três horas antes. Depois, eu não passei no DEPEN. No mesmo ano, a prova da PCDF foi remarcada justamente para o dia em que a minha filha nasceu.</p>
         </li>
         <li class="revelar"><i class="tiro acerto"></i>
           <span class="quando">Licença-maternidade</span>
-          <h3>Estudando com a filha ao lado</h3>
-          <p>Durante a licença, estudava enquanto a bebê dormia ao lado da cama. Foi aprovada nos concursos efetivo e temporário da Polícia Penal de Minas Gerais e fez o TAF no dia do primeiro aniversário da filha.</p>
+          <h3>Estudando com ela ao meu lado</h3>
+          <p>Durante a licença, eu colocava minha filha ao lado da cama e estudava enquanto ela dormia. Fui aprovada no concurso efetivo e no temporário da Polícia Penal de Minas Gerais e fiz o TAF no dia do primeiro aniversário dela.</p>
         </li>
         <li class="revelar"><i class="tiro fora"></i>
           <span class="quando">Polícia Penal de Minas Gerais</span>
-          <h3>O TAF cancelado</h3>
-          <p>Já aprovada no teste físico, soube que ele havia sido anulado e precisaria ser refeito em um mês. Sem treinar havia três meses, não passou. No mesmo dia, porém, recebeu a notícia da aprovação no processo seletivo temporário.</p>
+          <h3>Um teste que precisei refazer</h3>
+          <p>Eu já tinha passado no teste físico da PPMG quando soube que ele foi anulado e deveria ser refeito, com apenas um mês de prazo. Sem treinar havia quase quatro meses, eu reprovei. E, no mesmo dia, veio a notícia de que eu tinha sido aprovada no temporário.</p>
           <blockquote>“Eu reprovava, processava aquela reprovação, ficava em paz comigo mesma e voltava para o jogo.”</blockquote>
         </li>
         <li class="revelar"><i class="tiro marco"></i>
           <span class="quando">Contagem · 2023</span>
-          <h3>Recomeço em Minas Gerais</h3>
-          <p>O Douglas pediu demissão, e o casal se mudou para Minas Gerais. A filha ficou com a avó até a chegada do primeiro salário. Com os cartões comprometidos, eles precisaram de um empréstimo, que levaram cerca de um ano para quitar.</p>
+          <h3>Recomeçar em Minas Gerais</h3>
+          <p>Douglas pediu demissão e nos mudamos para Minas Gerais. Nossa filha ficou com a minha mãe até eu receber o primeiro salário. Foram meses de aperto, com cartões comprometidos e um empréstimo que levamos quase um ano para pagar.</p>
         </li>
         <li class="revelar"><i class="tiro acerto"></i>
           <span class="quando">2023 · três editais</span>
           <h3>Três aprovações no mesmo ano</h3>
-          <p>Estudando para três concursos ao mesmo tempo, foi aprovada para soldado e para oficial da PMMG e para soldado da PMDF. No CFO, ficou como excedente, e os 21 candidatos nessa situação não foram convocados.</p>
+          <p>Mesmo trabalhando, estudei para três concursos ao mesmo tempo e fui aprovada nos três: soldado e oficial da PMMG e soldado da PMDF. No concurso de oficial, fiquei como excedente e não fui chamada.</p>
         </li>
         <li class="revelar"><i class="tiro acerto"></i>
           <span class="quando">CFSd · PMMG · dez. 2023 a set. 2024</span>
-          <h3>Nove meses de formação e o 3º lugar</h3>
-          <p>Foram meses de privação de sono, desmaios, duas dengues e uma tendinite que dói até hoje. Enquanto isso, o Douglas cuidou da casa e da filha. Ela concluiu o curso em 3º lugar e conquistou o primeiro cargo efetivo.</p>
+          <h3>Os nove meses mais difíceis da minha vida</h3>
+          <p>Passei por privação de sono, cansaço, desmaios e duas dengues. Enquanto isso, o Douglas cuidou da casa e da nossa filha. Terminei o curso em 3º lugar e, finalmente, conquistei meu primeiro cargo efetivo.</p>
         </li>
         <li class="revelar"><i class="tiro acerto"></i>
           <span class="quando">TRF6 · STM · IASES · PPMG</span>
-          <h3>Mais seis aprovações</h3>
-          <p>Já como policial militar, voltou a estudar e foi aprovada para agente de polícia judicial no TRF6, técnico e analista judiciário no STM, agente e técnico superior socioeducativo no IASES e, no mesmo mês, novamente na Polícia Penal de Minas Gerais. Recusou o IASES: seriam apenas R$ 500 a mais e uma nova mudança de estado.</p>
+          <h3>Eu sabia que podia ir além</h3>
+          <p>Mesmo feliz na corporação, voltei a estudar. Fui aprovada no TRF6, em duas provas do STM, em duas do IASES e, mais uma vez, na Polícia Penal de Minas Gerais. Recusei o IASES, porque teria que mudar de estado de novo para ganhar pouco a mais.</p>
         </li>
         <li class="revelar final"><i class="tiro acerto"></i>
           <span class="quando">Câmara dos Deputados</span>
-          <h3>O concurso dos sonhos</h3>
-          <p>Após 97 dias de preparação, foi aprovada para o cargo de Policial Legislativo Federal, com 134 pontos na prova objetiva e 49,19 de 60 na discursiva. Passou em todas as etapas e ficou na 7ª colocação nas cotas, dentro das vagas. Agora, aguarda o curso de formação, de volta a Brasília, onde tudo começou.</p>
+          <h3>O concurso dos meus sonhos</h3>
+          <p>Foram 97 dias de muita dedicação. Eu abri mão de festas, eventos e lazer e estudava em todos os horários que podia. Lembro de uma vez em que saí com a minha família para jantar e fiquei respondendo questões enquanto a comida não chegava. Mas todo o sacrifício valeu a pena: fui aprovada em todas as etapas do concurso para Policial Legislativo Federal da Câmara dos Deputados, dentro das vagas. Agora, aguardo o curso de formação, de volta a Brasília, onde tudo começou.</p>
         </li>
       </ol>
     </div>
@@ -462,7 +478,7 @@ a { color: inherit; }
           <p class="rotulo">A Mentoria Ártemis</p>
           <h2 class="titulo-secao">Antes da matéria, <em>a mira.</em></h2>
         </div>
-        <p class="nao-e">Aqui você não vai encontrar aulas de Português ou de Direito. O curso completo em vídeo trata do que quase ninguém ensina: escolher o concurso certo para você, organizar os estudos e se preparar com estratégia.</p>
+        <p class="nao-e">Aqui você não vai encontrar aulas de Português ou de Direito Penal. Este curso em vídeo vai te mostrar o que quase ninguém ensina: como escolher o concurso certo para você, organizar os estudos, se preparar com estratégia e se tornar o próximo aprovado.</p>
       </div>
 
       <ol class="pilares">
@@ -565,9 +581,16 @@ a { color: inherit; }
       <span>MENTORIA ÁRTEMIS<small>JÉSSICA &amp; DOUGLAS</small></span>
     </a>
     <a href="https://www.instagram.com/_j.goias/" target="_blank" rel="noopener">INSTAGRAM @_J.GOIAS</a>
+    <a href="https://wa.me/5561991607431?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20a%20Mentoria%20%C3%81rtemis." target="_blank" rel="noopener">WHATSAPP (61) 99160-7431</a>
     <p>© 2026 Mentoria Ártemis. Todos os direitos reservados.</p>
   </div>
 </footer>
+
+<!-- BOTÃO FLUTUANTE DO WHATSAPP: para trocar o número, mude o 5561991607431 (55 = Brasil, 61 = DDD) -->
+<a class="whats" href="https://wa.me/5561991607431?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20a%20Mentoria%20%C3%81rtemis." target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 18.8z"/><path d="M9.2 9.3c.2 2 1.8 3.8 3.9 4.6l1-1 1.7.8-.3 1.3c-3.3.2-6.6-3-6.5-6.4l1.3-.3.8 1.7z" fill="currentColor" stroke="none"/></svg>
+  <span>WhatsApp</span>
+</a>
 
 <script>
 /* =========================================================
