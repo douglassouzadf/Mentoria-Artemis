@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Baixando o manual · Mentoria Ártemis</title>
+<meta name="robots" content="noindex">
+<!-- Se o JavaScript estiver desligado, o download começa em 3 segundos -->
+<noscript><meta http-equiv="refresh" content="3; url=manual-concurseiros-perdidos.pdf"></noscript>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Archivo:wght@400;600&family=Archivo+Narrow:wght@600&display=swap">
+<style>
+/* Página de passagem: existe só para a Cloudflare contar cada download do manual.
+   Cada visita a /baixar-manual = uma pessoa que clicou para baixar. */
+:root {
+  --preto:#0b0a08; --linha:#2b261c; --dourado:#d4af37; --dourado-claro:#ecd27a;
+  --texto:#efe9dc; --texto-suave:#a59d8b;
+  --f-titulo:"Cinzel", Georgia, serif;
+  --f-texto:"Archivo", "Helvetica Neue", Arial, sans-serif;
+  --f-rotulo:"Archivo Narrow", "Arial Narrow", Arial, sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0; background: var(--preto); color: var(--texto); font-family: var(--f-texto);
+  display: grid; place-items: center; text-align: center;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+main { display: grid; gap: 1.1rem; justify-items: center; max-width: 30rem; padding-block: 2rem; }
+.alvo { width: 72px; height: 72px; border-radius: 50%; border: 2px solid var(--dourado); display: grid; place-items: center; animation: girar 2.4s linear infinite; }
+.alvo::after { content: ""; width: 24px; height: 24px; border-radius: 50%; background: var(--dourado); box-shadow: 0 0 0 8px var(--preto), 0 0 0 9.5px var(--dourado); }
+@keyframes girar { 50% { transform: scale(.92); } }
+h1 { font-family: var(--f-titulo); font-size: 1.6rem; margin: 0; color: var(--dourado-claro); }
+p { margin: 0; color: var(--texto-suave); line-height: 1.6; }
+a.botao { font-family: var(--f-rotulo); font-weight: 600; letter-spacing: .14em; text-transform: uppercase; font-size: .88rem; text-decoration: none; padding: .95rem 1.4rem; border-radius: 2px; background: var(--dourado); color: var(--preto); }
+a.voltar { color: var(--texto-suave); font-size: .9rem; }
+:focus-visible { outline: 2px solid var(--dourado); outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { .alvo { animation: none; } }
+</style>
+</head>
+<body>
+<main>
+  <div class="alvo" aria-hidden="true"></div>
+  <h1>Seu manual está chegando!</h1>
+  <p>O download do <b>Manual de Estudos para Concurseiros Perdidos</b> vai começar em instantes.</p>
+  <a class="botao" href="manual-concurseiros-perdidos.pdf">Não começou? Clique aqui</a>
+  <a class="voltar" href="index.html">← Voltar ao site</a>
+</main>
+<script>
+  // Espera um pouco para a Cloudflare registrar a visita e então abre o PDF
+  setTimeout(() => { location.href = 'manual-concurseiros-perdidos.pdf'; }, 1500);
+</script>
+</body>
+</html>
