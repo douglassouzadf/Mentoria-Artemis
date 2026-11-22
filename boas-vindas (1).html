@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Um recado da Jéssica · Mentoria Ártemis</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Archivo:wght@400;500;600&family=Archivo+Narrow:wght@500;600&display=swap">
+
+<style>
+/* =========================================================
+   PÁGINA DO VÍDEO — Mentoria Ártemis
+   Mesmas cores e fontes do site principal.
+   ========================================================= */
+:root {
+  --preto:        #0b0a08;
+  --preto-2:      #15130f;
+  --linha:        #2b261c;
+  --dourado:      #d4af37;
+  --dourado-claro:#ecd27a;
+  --texto:        #efe9dc;
+  --texto-suave:  #a59d8b;
+  --fora:         #7c7462;
+
+  --f-titulo: "Cinzel", "Trajan Pro", Georgia, serif;
+  --f-texto:  "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --f-rotulo: "Archivo Narrow", "Arial Narrow", Arial, sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--preto); color: var(--texto);
+  font-family: var(--f-texto); font-size: 1.0625rem; line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2 { font-family: var(--f-titulo); font-weight: 700; line-height: 1.15; margin: 0; text-wrap: balance; }
+p { margin: 0; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--dourado); outline-offset: 3px; }
+
+.miolo {
+  max-width: 860px; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+/* Cabeçalho simples: só a marca, que volta para o site */
+.topo { border-bottom: 1px solid var(--linha); padding-top: env(safe-area-inset-top, 0px); }
+.topo .miolo { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: .7rem; }
+.marca { display: flex; align-items: center; gap: .7rem; text-decoration: none; }
+.marca img { width: 42px; height: 42px; }
+.marca span { font-family: var(--f-titulo); font-weight: 700; letter-spacing: .08em; color: var(--dourado-claro); font-size: 1rem; line-height: 1.1; }
+.marca small { display: block; font-family: var(--f-rotulo); letter-spacing: .3em; font-size: .62rem; color: var(--texto-suave); }
+.voltar { font-family: var(--f-rotulo); font-size: .85rem; letter-spacing: .1em; text-transform: uppercase; color: var(--texto-suave); text-decoration: none; }
+.voltar:hover { color: var(--dourado); }
+
+.rotulo {
+  font-family: var(--f-rotulo); font-weight: 600; font-size: .8rem; letter-spacing: .22em;
+  text-transform: uppercase; color: var(--dourado);
+  display: flex; align-items: center; gap: .6rem;
+}
+.rotulo::before {
+  content: ""; width: 14px; height: 14px; border-radius: 50%;
+  border: 1.5px solid var(--dourado);
+  background: radial-gradient(circle, var(--dourado) 0 2px, transparent 2.5px);
+  flex: none;
+}
+
+main { padding-block: clamp(2.5rem, 7vw, 5rem); }
+h1 { font-size: clamp(1.9rem, 5vw, 3rem); margin-top: .8rem; }
+h1 em { font-style: normal; color: var(--dourado-claro); }
+.intro { color: var(--texto-suave); margin-top: 1rem; max-width: 60ch; }
+
+/* A moldura do vídeo: sempre na proporção 16:9 */
+.video {
+  position: relative; aspect-ratio: 16 / 9; margin-top: 2rem;
+  border: 1px solid var(--dourado); background: var(--preto-2); overflow: hidden;
+}
+.video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.video-vazio {
+  position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: .8rem;
+  padding: 1rem; text-align: center; color: var(--texto-suave);
+  background: radial-gradient(circle at 50% 50%, rgba(212,175,55,.14), transparent 60%);
+}
+.video-vazio .alvo {
+  width: 64px; height: 64px; border-radius: 50%; border: 1.5px solid var(--dourado);
+  background: repeating-radial-gradient(circle, transparent 0 7px, rgba(212,175,55,.35) 7px 8px); position: relative;
+}
+.video-vazio .alvo::after { content: ""; position: absolute; inset: 26px; border-radius: 50%; background: var(--dourado); }
+
+/* Resumo da escolha de pagamento + botão */
+.caixa { margin-top: 2.5rem; border: 1px solid var(--dourado); padding: 1.8rem 1.6rem; background: radial-gradient(circle at 100% 0, rgba(212,175,55,.14), transparent 55%), var(--preto); }
+.caixa h2 { font-size: 1.4rem; }
+.escolha { margin-top: 1rem; padding: .9rem 1rem; border: 1px solid var(--linha); }
+.escolha b { display: block; color: var(--texto); font-weight: 600; }
+.escolha small { display: block; color: var(--texto-suave); font-size: .88rem; }
+.acoes { display: flex; flex-wrap: wrap; align-items: center; gap: .9rem 1.4rem; margin-top: 1.4rem; }
+.botao {
+  display: inline-flex; align-items: center; justify-content: center;
+  font-family: var(--f-rotulo); font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+  font-size: .9rem; text-decoration: none; padding: 1rem 1.6rem; border-radius: 2px;
+  background: var(--dourado); color: var(--preto); border: 1px solid var(--dourado);
+  transition: background .2s, transform .2s;
+}
+.botao:hover { background: var(--dourado-claro); transform: translateY(-1px); }
+.trocar { font-family: var(--f-rotulo); font-size: .85rem; letter-spacing: .08em; text-transform: uppercase; color: var(--texto-suave); }
+.trocar:hover { color: var(--dourado); }
+.seguro { margin-top: 1rem; font-size: .82rem; color: var(--fora); }
+@media (max-width: 520px) { .botao { width: 100%; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; } }
+</style>
+</head>
+<body>
+<header class="topo">
+  <div class="miolo">
+    <a class="marca" href="index.html">
+      <img src="logo-artemis.webp" alt="" width="42" height="42">
+      <span>MENTORIA ÁRTEMIS<small>CONCURSOS</small></span>
+    </a>
+    <a class="voltar" href="index.html#oferta">← Voltar ao site</a>
+  </div>
+</header>
+
+<main>
+  <div class="miolo">
+    <p class="rotulo">Um recado da Jéssica</p>
+    <h1>Parabéns por <em>mirar no seu primeiro acerto.</em></h1>
+    <p class="intro">Antes de seguir para o pagamento, assista ao recado da Jéssica. Ela explica como a mentoria funciona e o que você vai encontrar dentro dela.</p>
+
+    <!-- VÍDEO
+         Para colocar o vídeo: cole o link do YouTube entre as aspas de VIDEO_LINK, lá embaixo no JavaScript.
+         Enquanto o link estiver vazio, aparece o aviso "O vídeo entra aqui". -->
+    <div class="video" id="video">
+      <div class="video-vazio" id="video-vazio">
+        <div class="alvo" aria-hidden="true"></div>
+        <p>O vídeo da Jéssica entra aqui.</p>
+      </div>
+    </div>
+
+    <section class="caixa" aria-labelledby="titulo-pagamento">
+      <h2 id="titulo-pagamento">Pronto para entrar?</h2>
+      <div class="escolha" id="escolha">
+        <b id="escolha-nome">Cartão ou boleto · R$ 199,99</b>
+        <small id="escolha-detalhe">cartão em até 12x de R$ 20,67, com juros</small>
+      </div>
+      <div class="acoes">
+        <!-- Este botão leva para o pagamento na Kiwify. O JavaScript escolhe o link certo (cartão/boleto ou Pix). -->
+        <a class="botao" id="ir-pagar" href="https://pay.kiwify.com.br/dxIMqQI?hidePix=true">Ir para o pagamento</a>
+        <a class="trocar" href="index.html#oferta">Trocar forma de pagamento</a>
+      </div>
+      <p class="seguro">Pagamento seguro pela Kiwify. Você pode ir direto ao pagamento, sem esperar o fim do vídeo.</p>
+    </section>
+  </div>
+</main>
+
+<script src="config.js"></script>
+<script>
+/* =========================================================
+   JAVASCRIPT DA PÁGINA DO VÍDEO — quatro tarefas:
+   1) Se ainda não for hora do lançamento, volta para o site.
+   2) Descobre a forma de pagamento escolhida (cartão/boleto ou Pix).
+   3) Coloca o link certo da Kiwify no botão.
+   4) Mostra o vídeo, se já tiver um link.
+   ========================================================= */
+
+// >>> COLE AQUI O LINK DO VÍDEO (ex.: https://youtu.be/AbCdEfGhIjK). Deixe vazio se ainda não gravou.
+const VIDEO_LINK = '';
+
+// Hora atual (ou a hora simulada, no modo de teste). Preços e links vêm do config.js.
+const params = new URLSearchParams(location.search);
+const agora = agoraCerto();
+const OFERTA = OFERTAS[periodoDaOferta(agora)];
+
+// 1) Antes do lançamento ninguém deve ver o botão de pagamento: volta para o site
+if (agora < LANCAMENTO) {
+  location.replace('index.html#oferta');
+}
+
+// 2) Qual forma de pagamento veio no endereço (?forma=pix ou ?forma=cartao)?
+const forma = params.get('forma') === 'pix' ? 'pix' : 'cartao';
+
+// 3) Coloca o texto e o link certos na página
+document.getElementById('escolha-nome').textContent = OFERTA[forma].nome;
+document.getElementById('escolha-detalhe').textContent = OFERTA[forma].detalhe;
+document.getElementById('ir-pagar').href = OFERTA[forma].link;
+
+// 4) Vídeo: transforma o link do YouTube em um player dentro da página
+function idDoYoutube(link) {
+  // aceita youtu.be/ID, youtube.com/watch?v=ID, youtube.com/embed/ID e youtube.com/shorts/ID
+  const achou = link.match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([A-Za-z0-9_-]{11})/);
+  return achou ? achou[1] : '';
+}
+const id = idDoYoutube(VIDEO_LINK.trim());
+if (id) {
+  const quadro = document.createElement('iframe');
+  quadro.src = 'https://www.youtube-nocookie.com/embed/' + id + '?rel=0';
+  quadro.title = 'Recado da Jéssica sobre a Mentoria Ártemis';
+  quadro.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture; fullscreen';
+  quadro.allowFullscreen = true;
+  quadro.loading = 'lazy';
+  document.getElementById('video-vazio').remove();   // tira o aviso "O vídeo entra aqui"
+  document.getElementById('video').appendChild(quadro);
+}
+</script>
+</body>
+</html>
