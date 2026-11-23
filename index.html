@@ -123,51 +123,6 @@ a { color: inherit; }
 @media (max-width: 1020px) { .menu { display: none; } }   /* o botão do topo continua aparecendo */
 @media (max-width: 420px) { .topo .botao { display: none; } }
 
-/* 3b) FAIXA DO LANÇAMENTO — cronômetro regressivo
-      Fica escondida (atributo "hidden") e o JavaScript só a mostra
-      entre 22/11 às 19h e o lançamento, 23/11 às 19h. */
-.lancamento {
-  background:
-    radial-gradient(circle at 0 50%, rgba(212,175,55,.14), transparent 45%),
-    var(--preto-2);
-  border-bottom: 1px solid var(--dourado);
-}
-.lancamento[hidden] { display: none; }   /* garante que "hidden" vença o display do .miolo */
-.lancamento .miolo {
-  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
-  gap: 1.2rem 2.5rem; padding-block: 1.6rem;
-}
-.lancamento-texto { min-width: 0; flex: 1 1 320px; }
-.lancamento-texto h2 { font-size: clamp(1.3rem, 3.2vw, 1.9rem); margin-top: .6rem; }
-.lancamento-texto h2 em { font-style: normal; color: var(--dourado-claro); }
-.lancamento-texto p.quando { color: var(--texto-suave); font-size: .95rem; margin-top: .4rem; }
-
-.relogio { display: flex; align-items: flex-start; gap: .5rem; flex: none; }
-.relogio .bloco {
-  min-width: 78px; text-align: center; padding: .7rem .6rem .55rem;
-  border: 1px solid var(--dourado); border-radius: 2px; background: var(--preto);
-}
-.relogio .bloco b {
-  display: block; font-family: var(--f-titulo); font-weight: 900; line-height: 1;
-  font-size: clamp(2rem, 6vw, 2.8rem); color: var(--dourado-claro);
-  font-variant-numeric: tabular-nums;     /* todos os dígitos com a mesma largura: não "balança" */
-}
-.relogio .bloco span {
-  display: block; margin-top: .4rem; font-family: var(--f-rotulo); font-size: .7rem;
-  letter-spacing: .2em; text-transform: uppercase; color: var(--texto-suave);
-}
-.relogio .sep { font-family: var(--f-titulo); font-size: 2rem; line-height: 1; padding-top: .8rem; color: var(--dourado); }
-@media (max-width: 520px) {
-  .lancamento .miolo { justify-content: center; text-align: center; }
-  .lancamento-texto .rotulo { justify-content: center; }
-  .relogio { width: 100%; justify-content: center; }
-  .relogio .bloco { min-width: 0; flex: 1 1 0; max-width: 96px; }
-}
-/* Quando o lançamento chega, o relógio some e aparece o botão */
-.lancamento .botao { flex: none; }
-.lancamento .botao[hidden] { display: none; }   /* sem isso, o .botao (inline-flex) ignora o "hidden" */
-.lancamento.aberto .relogio { display: none; }
-
 /* 4) HERO */
 .hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--linha); }
 .hero .miolo {
@@ -443,35 +398,10 @@ a { color: inherit; }
       <a href="#novidades">Novidades</a>
       <a href="#duvidas">Dúvidas</a>
     </nav>
-    <!-- Leva para a seção da oferta, lá embaixo. Antes do lançamento diz "Lista de espera"; depois, "Quero entrar". -->
-    <a class="botao" id="botao-topo" href="#oferta">Lista de espera</a>
+    <a class="botao" href="#oferta">Quero entrar</a>
   </div>
 </header>
 
-<!-- ===================== FAIXA DO LANÇAMENTO (CRONÔMETRO) =====================
-     Nasce escondida (hidden). O JavaScript lá embaixo a mostra sozinho
-     entre 22/11 às 19h e 23/11 às 19h, e troca o texto quando o lançamento chega. -->
-<section class="lancamento" id="lancamento" hidden aria-label="Contagem regressiva para o lançamento">
-  <div class="miolo">
-    <div class="lancamento-texto">
-      <p class="rotulo" id="lanc-rotulo">Contagem regressiva</p>
-      <h2 id="lanc-titulo">Faltam poucas horas para o <em>lançamento.</em></h2>
-      <p class="quando" id="lanc-quando">Abertura das vagas: segunda-feira, 23/11, às 19h (horário de Brasília).</p>
-    </div>
-
-    <!-- O relógio: três blocos. O JavaScript troca os números a cada segundo. -->
-    <div class="relogio" role="timer" aria-label="Tempo restante para o lançamento">
-      <div class="bloco"><b id="lanc-h">00</b><span>Horas</span></div>
-      <span class="sep" aria-hidden="true">:</span>
-      <div class="bloco"><b id="lanc-m">00</b><span>Minutos</span></div>
-      <span class="sep" aria-hidden="true">:</span>
-      <div class="bloco"><b id="lanc-s">00</b><span>Segundos</span></div>
-    </div>
-
-    <!-- Botão que só aparece depois do lançamento: leva para a seção da oferta -->
-    <a class="botao" id="lanc-botao" href="#oferta" hidden>Garantir minha vaga</a>
-  </div>
-</section>
 
 <main>
   <!-- ===================== HERO ===================== -->
@@ -690,11 +620,11 @@ a { color: inherit; }
       <div>
         <p class="rotulo">Turma de lançamento</p>
         <h2 class="titulo-secao">Mire no seu <em>primeiro acerto.</em></h2>
-        <p class="intro" id="oferta-intro">A mentoria está sendo finalizada pela Jéssica e pelo Douglas. Siga o Instagram dela para ser o primeiro a saber quando as vagas forem abertas.</p>
+        <p class="intro">As vagas da turma de lançamento estão abertas. Escolha a forma de pagamento que for melhor para você e garanta o seu acesso pela Kiwify.</p>
       </div>
 
       <div class="plano">
-        <span class="selo" id="oferta-selo">Em breve</span>
+        <span class="selo">Vagas abertas</span>
         <h3>Curso completo em vídeo</h3>
         <!-- PREÇO: os valores vêm do arquivo config.js. O JavaScript troca estes textos conforme a data. -->
         <p class="preco-de" id="preco-de">De <s>R$ 249,90</s> por</p>
@@ -712,10 +642,10 @@ a { color: inherit; }
           <li><div>Acesso pela plataforma Kiwify</div></li>
         </ul>
 
-        <!-- ANTES DO LANÇAMENTO: só aparece a lista de espera (bloco-espera, mais abaixo).
-             NO LANÇAMENTO (23/11, 19h): o JavaScript mostra este bloco de pagamento e esconde a lista de espera.
-             Os links da Kiwify moram no arquivo boas-vindas.html: o botão abaixo leva primeiro ao vídeo da Jéssica. -->
-        <div id="bloco-pagamento" hidden>
+        <!-- FORMA DE PAGAMENTO
+             Os preços vêm do arquivo config.js. O botão abaixo leva ao vídeo da Jéssica (boas-vindas.html),
+             e de lá a pessoa segue para o link da Kiwify da forma escolhida (links também no config.js). -->
+        <div>
         <fieldset class="pagamento">
           <legend>Como você quer pagar?</legend>
           <label class="opcao">
@@ -733,10 +663,6 @@ a { color: inherit; }
         <p class="seguro">Pagamento seguro pela Kiwify.</p>
         </div>
 
-        <!-- LISTA DE ESPERA: aparece até o cronômetro zerar -->
-        <div id="bloco-espera">
-          <a class="botao" href="lista-de-espera.html">Quero fazer parte da lista de espera</a>
-        </div>
 
         <p class="em-breve"><b>Em breve, plano com acompanhamento:</b> atendimento exclusivo e acompanhamento de perto.</p>
       </div>
@@ -750,15 +676,11 @@ a { color: inherit; }
         <div class="novidades-alvo" aria-hidden="true"></div>
         <div>
           <p class="rotulo">Novidades em breve</p>
-          <h2 class="titulo-secao">A sua <em>área de estudos</em> está chegando.</h2>
-          <p class="intro">Em breve, os alunos da Mentoria Ártemis vão ter um lugar só para assistir às aulas, baixar os materiais, acompanhar o próprio progresso e montar um calendário de estudos.</p>
+          <h2 class="titulo-secao">A sua <em>mentoria com acompanhamento individual</em> está chegando.</h2>
+          <p class="intro">Em breve, os alunos da mentoria Ártemis terão acompanhamento individual para estudar para o concurso de sua escolha, com uma plataforma que possibilitará resolução de questões, cronograma personalizado com a sua rotina e outras ferramentas.</p>
         </div>
-        <!-- BOTÃO DA PLATAFORMA DE ESTUDOS
-             Para ativar quando a plataforma estiver pronta:
-             1) troque href="#novidades" pelo endereço da plataforma (ex.: https://area-artemis.pages.dev);
-             2) apague a palavra desativado e o aria-disabled="true" tabindex="-1";
-             3) troque o texto "Em breve" por "Acessar área de estudos". -->
-        <a class="botao desativado" href="#novidades" aria-disabled="true" tabindex="-1">Em breve</a>
+        <!-- Leva para a lista de espera (lista-de-espera.html), a mesma usada antes -->
+        <a class="botao" href="lista-de-espera.html">Lista de espera</a>
       </div>
     </div>
   </section>
@@ -787,7 +709,7 @@ a { color: inherit; }
         </details>
         <details>
           <summary>Como faço o pagamento?</summary>
-          <p id="faq-pagamento">Pela Kiwify, uma plataforma segura de cursos on-line. O link será divulgado no lançamento.</p>
+          <p id="faq-pagamento">Pela Kiwify, uma plataforma segura de cursos on-line. Você escolhe entre Pix (R$ 189,99, com 5% de desconto) e cartão de crédito ou boleto (R$ 199,99, com opção de parcelar em até 12x com juros no cartão). Na seção do curso, é só marcar a forma que preferir e clicar em “Quero entrar na mentoria”. Antes do pagamento, você assiste a um recado da Jéssica.</p>
         </details>
       </div>
     </div>
@@ -902,7 +824,7 @@ function agoraCerto() { return Date.now() + (isNaN(DIFERENCA_DE_HORA) ? 0 : DIFE
    JAVASCRIPT — três partes:
    1) Os números do placar contam de 0 até o valor final.
    2) Os itens da linha do tempo deslizam ao entrar na tela.
-   3) O cronômetro do lançamento e a abertura das vendas.
+   3) Os preços na tela e o botão de compra (valores e links no config.js).
    As duas primeiras só "enfeitam": sem JS, o conteúdo aparece igual.
    ========================================================= */
 const semMovimento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -939,25 +861,11 @@ if ('IntersectionObserver' in window && !semMovimento) {
   });
 }
 
-// 3) CRONÔMETRO E ABERTURA DAS VENDAS -----------------------------------
-// As datas (INICIO_CONTAGEM, LANCAMENTO, FIM_PROMO) e os preços ficam no arquivo config.js.
-
-// Pega na página cada peça que o cronômetro mexe, pelo id que demos a ela no HTML
-const faixa    = document.getElementById('lancamento');
-const elH      = document.getElementById('lanc-h');
-const elM      = document.getElementById('lanc-m');
-const elS      = document.getElementById('lanc-s');
-const elRot    = document.getElementById('lanc-rotulo');
-const elTit    = document.getElementById('lanc-titulo');
-const elQuando = document.getElementById('lanc-quando');
-const elBotao  = document.getElementById('lanc-botao');
-const botaoTopo       = document.getElementById('botao-topo');
-const blocoPagamento  = document.getElementById('bloco-pagamento');
-const blocoEspera     = document.getElementById('bloco-espera');
-const seloOferta      = document.getElementById('oferta-selo');
-const introOferta     = document.getElementById('oferta-intro');
-const faqPagamento    = document.getElementById('faq-pagamento');
-const botaoComprar    = document.getElementById('botao-comprar');
+// 3) PREÇOS E BOTÃO DE COMPRA -------------------------------------------
+// Os preços, as datas e os links ficam no arquivo config.js.
+// Até 30/11 vale a oferta de lançamento; de 1º/12 em diante, o preço cheio.
+const botaoComprar = document.getElementById('botao-comprar');
+const faqPagamento = document.getElementById('faq-pagamento');
 
 // Botão de compra: leva para a página do vídeo, avisando qual forma de pagamento está marcada
 function atualizarLinkDeCompra() {
@@ -968,17 +876,6 @@ function atualizarLinkDeCompra() {
 document.querySelectorAll('input[name="forma"]').forEach((opcao) => {
   opcao.addEventListener('change', atualizarLinkDeCompra);
 });
-atualizarLinkDeCompra();
-
-// Transforma 5 em "05" (sempre dois dígitos)
-function doisDigitos(n) { return String(n).padStart(2, '0'); }
-
-// Decide em qual das 3 fases estamos: 'antes', 'contando' ou 'depois'
-function fase(agora) {
-  if (agora < INICIO_CONTAGEM) return 'antes';
-  if (agora < LANCAMENTO) return 'contando';
-  return 'depois';
-}
 
 // Preços na tela: usa a tabela do config.js (oferta de lançamento até 30/11; depois, preço cheio)
 function aplicarOferta() {
@@ -997,54 +894,11 @@ function aplicarOferta() {
   trocar('opc-cartao-det', o.cartao.detalhe);
   trocar('opc-pix-nome', o.pix.nome);
   trocar('opc-pix-det', o.pix.detalhe);
-}
-
-// No lançamento: esconde a lista de espera e mostra o pagamento
-function abrirVendas() {
-  blocoEspera.hidden = true;
-  blocoPagamento.hidden = false;
-  seloOferta.textContent = 'Vagas abertas';
-  introOferta.textContent = 'As vagas da turma de lançamento estão abertas. Escolha a forma de pagamento que for melhor para você e garanta o seu acesso pela Kiwify.';
-  const o = OFERTAS[periodoDaOferta(agoraCerto())];
   faqPagamento.textContent = 'Pela Kiwify, uma plataforma segura de cursos on-line. Você escolhe entre Pix (' + o.pix.valor + ', com 5% de desconto) e cartão de crédito ou boleto (' + o.cartao.valor + ', com opção de parcelar em até 12x com juros no cartão). Na seção do curso, é só marcar a forma que preferir e clicar em “Quero entrar na mentoria”. Antes do pagamento, você assiste a um recado da Jéssica.';
-  botaoTopo.textContent = 'Quero entrar';
 }
 
-let relogio; // guarda o "despertador" de 1 segundo, para podermos desligá-lo
-
-function atualizar() {
-  const agora = agoraCerto();
-  const f = fase(agora);
-
-  if (f === 'antes') {            // ainda não são 19h do dia 22: faixa escondida
-    faixa.hidden = true;
-    return;
-  }
-
-  faixa.hidden = false;           // a partir das 19h do dia 22: mostra a faixa
-
-  if (f === 'contando') {
-    const resta = LANCAMENTO - agora;                 // milissegundos que faltam
-    const totalSeg = Math.floor(resta / 1000);        // vira segundos inteiros
-    elH.textContent = doisDigitos(Math.floor(totalSeg / 3600));        // 3600 s = 1 hora
-    elM.textContent = doisDigitos(Math.floor((totalSeg % 3600) / 60)); // o resto, em minutos
-    elS.textContent = doisDigitos(totalSeg % 60);                      // o resto, em segundos
-    return;
-  }
-
-  // f === 'depois': o lançamento chegou. Troca os textos, abre as vendas e para o relógio.
-  faixa.classList.add('aberto');
-  elRot.textContent = 'Chegou a hora';
-  elTit.innerHTML = 'O lançamento <em>começou!</em>';
-  elQuando.textContent = 'As vagas da turma de lançamento estão abertas.';
-  elBotao.hidden = false;
-  abrirVendas();
-  clearInterval(relogio);
-}
-
-aplicarOferta();                      // coloca os preços certos na tela
-atualizar();                          // roda uma vez já na abertura da página
-relogio = setInterval(atualizar, 1000); // e depois repete a cada 1000 ms (1 segundo)
+aplicarOferta();
+atualizarLinkDeCompra();
 </script>
 </body>
 </html>
