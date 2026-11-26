@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Editais verticalizados grátis · Mentoria Ártemis</title>
+<meta name="description" content="Baixe grátis o edital verticalizado do seu concurso, no modelo da Mentoria Ártemis.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Archivo:wght@400;500;600&family=Archivo+Narrow:wght@500;600&display=swap">
+<style>
+/* Mesmas cores e fontes do site principal (index.html) */
+:root {
+  --preto:#0b0a08; --preto-2:#15130f; --linha:#2b261c;
+  --dourado:#d4af37; --dourado-claro:#ecd27a;
+  --texto:#efe9dc; --texto-suave:#a59d8b; --fora:#7c7462;
+  --erro:#e8846b;
+  --f-titulo:"Cinzel", Georgia, serif;
+  --f-texto:"Archivo", "Helvetica Neue", Arial, sans-serif;
+  --f-rotulo:"Archivo Narrow", "Arial Narrow", Arial, sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html, body { min-height: 100%; }
+body {
+  margin: 0; background: var(--preto); color: var(--texto);
+  font-family: var(--f-texto); font-size: 1.0625rem; line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  background-image: repeating-radial-gradient(circle at 100% 0, transparent 0 46px, rgba(212,175,55,.05) 46px 47px);
+}
+h1 { font-family: var(--f-titulo); font-weight: 700; line-height: 1.15; margin: 0; text-wrap: balance; }
+p { margin: 0; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--dourado); outline-offset: 3px; }
+
+.miolo {
+  max-width: 1040px; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+/* Cabeçalho simples, com volta para o site */
+.topo { border-bottom: 1px solid var(--linha); }
+.topo .miolo { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: .8rem; }
+.marca { display: flex; align-items: center; gap: .7rem; text-decoration: none; }
+.marca img { width: 42px; height: 42px; }
+.marca span { font-family: var(--f-titulo); font-weight: 700; letter-spacing: .08em; color: var(--dourado-claro); font-size: 1rem; }
+.voltar { font-family: var(--f-rotulo); font-size: .85rem; letter-spacing: .12em; text-transform: uppercase; color: var(--texto-suave); text-decoration: none; }
+.voltar:hover { color: var(--dourado); }
+
+/* Duas colunas: convite à esquerda, formulário à direita */
+.palco { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: start; padding-block: clamp(2.5rem, 7vw, 5rem); }
+.palco > * { min-width: 0; }
+.rotulo { font-family: var(--f-rotulo); font-weight: 600; font-size: .8rem; letter-spacing: .22em; text-transform: uppercase; color: var(--dourado); }
+h1 { font-size: clamp(2rem, 5vw, 3.1rem); margin-top: .9rem; }
+h1 em { font-style: normal; color: var(--dourado-claro); }
+.convite p.texto { color: var(--texto-suave); margin-top: 1.2rem; max-width: 46ch; }
+.selo-gratis { display: inline-block; margin-top: 1.4rem; font-family: var(--f-rotulo); font-weight: 600; font-size: .85rem; letter-spacing: .16em; text-transform: uppercase; color: var(--dourado); border: 1px solid var(--dourado); padding: .45rem .9rem; }
+.vantagens { list-style: none; padding: 0; margin: 1.8rem 0 0; display: grid; gap: .8rem; }
+.vantagens li { display: flex; gap: .75rem; align-items: baseline; }
+.vantagens li::before { content: ""; width: 10px; height: 10px; border-radius: 50%; flex: none; border: 1.5px solid var(--dourado); background: radial-gradient(circle, var(--dourado) 0 2px, transparent 2.5px); transform: translateY(1px); }
+
+/* Formulário */
+.cartao { border: 1px solid var(--dourado); background: var(--preto-2); padding: clamp(1.4rem, 4vw, 2.2rem); position: relative; }
+.cartao::before { content: "Edital grátis"; position: absolute; top: -.8rem; left: 1.6rem; background: var(--dourado); color: var(--preto); font-family: var(--f-rotulo); font-weight: 600; font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; padding: .3rem .7rem; }
+form { display: grid; gap: 1.15rem; }
+.campo { display: grid; gap: .4rem; }
+label, legend { font-family: var(--f-rotulo); font-weight: 600; font-size: .82rem; letter-spacing: .12em; text-transform: uppercase; color: var(--texto); }
+input[type="text"], input[type="tel"], input[type="email"], select {
+  width: 100%; font: inherit; font-size: 1rem; color: var(--texto);
+  background: var(--preto); border: 1px solid var(--linha); border-radius: 2px;
+  padding: .85rem .95rem; transition: border-color .2s;
+}
+/* Setinha dourada da lista de editais (a seta padrão do navegador some) */
+select {
+  appearance: none; -webkit-appearance: none; cursor: pointer; padding-right: 2.6rem;
+  background-image: linear-gradient(45deg, transparent 50%, var(--dourado) 50%), linear-gradient(135deg, var(--dourado) 50%, transparent 50%);
+  background-position: calc(100% - 1.2rem) 55%, calc(100% - .85rem) 55%;
+  background-size: 6px 6px; background-repeat: no-repeat;
+}
+select option, select optgroup { background: var(--preto-2); color: var(--texto); }
+input::placeholder { color: var(--fora); }
+input:focus, select:focus { outline: none; border-color: var(--dourado); }
+.campo.invalido input, .campo.invalido select { border-color: var(--erro); }
+.msg-erro { font-size: .85rem; color: var(--erro); }
+.msg-erro:empty { display: none; }
+
+fieldset { border: 0; margin: 0; padding: 0; display: grid; gap: .55rem; min-width: 0; }
+.escolhas { display: flex; flex-wrap: wrap; gap: .6rem; }
+.escolha { position: relative; }
+.escolha input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+.escolha span { display: inline-block; padding: .55rem 1.1rem; border: 1px solid var(--linha); border-radius: 999px; font-size: .95rem; color: var(--texto-suave); transition: all .2s; text-transform: none; letter-spacing: 0; font-family: var(--f-texto); font-weight: 400; }
+.escolha input:checked + span { border-color: var(--dourado); color: var(--preto); background: var(--dourado); }
+.escolha input:focus-visible + span { outline: 2px solid var(--dourado); outline-offset: 3px; }
+
+.aceite { display: grid; grid-template-columns: auto 1fr; gap: .7rem; align-items: start; font-family: var(--f-texto); font-weight: 400; font-size: .9rem; letter-spacing: 0; text-transform: none; color: var(--texto-suave); line-height: 1.5; }
+.aceite input { width: 18px; height: 18px; margin-top: .15rem; accent-color: var(--dourado); }
+
+.botao {
+  display: inline-flex; align-items: center; justify-content: center; width: 100%;
+  font-family: var(--f-rotulo); font-weight: 600; letter-spacing: .14em; text-transform: uppercase; font-size: .92rem;
+  padding: 1.05rem 1.4rem; border-radius: 2px; border: 1px solid var(--dourado);
+  background: var(--dourado); color: var(--preto); cursor: pointer; transition: background .2s; text-decoration: none;
+}
+.botao:hover { background: var(--dourado-claro); }
+.botao[disabled] { opacity: .6; cursor: wait; }
+.botao.vazado { background: transparent; color: var(--dourado); }
+.botao.vazado:hover { background: rgba(212,175,55,.1); }
+.privacidade { font-size: .8rem; color: var(--fora); text-align: center; }
+
+/* Tela de sucesso, com o botão de download */
+.sucesso { text-align: center; display: grid; gap: 1rem; justify-items: center; padding-block: 1.5rem; }
+.sucesso .alvo { width: 64px; height: 64px; border-radius: 50%; border: 2px solid var(--dourado); display: grid; place-items: center; }
+.sucesso .alvo::after { content: ""; width: 22px; height: 22px; border-radius: 50%; background: var(--dourado); box-shadow: 0 0 0 7px var(--preto-2), 0 0 0 8.5px var(--dourado); }
+.sucesso h2 { font-family: var(--f-titulo); font-size: 1.6rem; color: var(--dourado-claro); margin: 0; }
+.sucesso p { color: var(--texto-suave); max-width: 36ch; }
+.sucesso .botao { width: auto; }
+.sucesso .outro { font-family: var(--f-rotulo); font-size: .85rem; letter-spacing: .1em; text-transform: uppercase; color: var(--texto-suave); background: none; border: 0; cursor: pointer; text-decoration: underline; }
+.sucesso .outro:hover { color: var(--dourado); }
+
+/* Janela de conferência dos dados, antes de enviar */
+dialog.confirmar { border: 1px solid var(--dourado); background: var(--preto-2); color: var(--texto); padding: clamp(1.4rem, 4vw, 2rem); width: min(92vw, 460px); max-height: 90vh; overflow: auto; }
+dialog.confirmar::backdrop { background: rgba(0,0,0,.75); }
+dialog.confirmar h2 { font-family: var(--f-titulo); font-size: 1.4rem; color: var(--dourado-claro); margin: 0; }
+dialog.confirmar .aviso { color: var(--texto-suave); font-size: .95rem; margin-top: .6rem; }
+.dados { margin: 1.2rem 0 0; display: grid; gap: .8rem; }
+.dados div { border: 1px solid var(--linha); padding: .7rem .9rem; background: var(--preto); }
+.dados dt { font-family: var(--f-rotulo); font-weight: 600; font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; color: var(--dourado); }
+.dados dd { margin: .15rem 0 0; font-size: 1.05rem; color: var(--texto); overflow-wrap: anywhere; }
+.confirmar-acoes { display: grid; gap: .7rem; margin-top: 1.4rem; }
+
+@media (max-width: 820px) { .palco { grid-template-columns: 1fr; gap: 2.5rem; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; } }
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="miolo">
+    <a class="marca" href="index.html"><img src="logo-artemis.webp" alt="" width="42" height="42"><span>MENTORIA ÁRTEMIS</span></a>
+    <a class="voltar" href="index.html">← Voltar ao site</a>
+  </div>
+</header>
+
+<main class="miolo palco">
+  <section class="convite">
+    <p class="rotulo">Material gratuito</p>
+    <h1>Baixe o <em>edital verticalizado</em> do seu concurso.</h1>
+    <p class="texto">Todo o conteúdo do edital organizado em uma lista, com espaço para marcar o que você já estudou, revisou e treinou com questões. É o mesmo modelo que a Jéssica usa nos planos de estudo da Mentoria Ártemis.</p>
+    <p class="selo-gratis">100% grátis · PDF para imprimir ou usar no celular</p>
+    <ul class="vantagens">
+      <li>Veja todo o conteúdo da prova de uma vez</li>
+      <li>Marque o que já estudou e o que falta</li>
+      <li>Organize revisões e questões por assunto</li>
+      <li>Preencha os dados abaixo e faça o download na hora.</li>
+    </ul>
+  </section>
+
+  <section class="cartao" aria-live="polite">
+    <form id="formulario" novalidate>
+      <div class="campo">
+        <label for="edital">Qual edital você quer?</label>
+        <!-- As opções são criadas pelo JavaScript, a partir da lista EDITAIS lá embaixo -->
+        <select id="edital" name="edital" required>
+          <option value="">Escolha o concurso</option>
+        </select>
+        <p class="msg-erro" id="erro-edital"></p>
+      </div>
+      <div class="campo">
+        <label for="nome">Nome completo</label>
+        <input type="text" id="nome" name="nome" autocomplete="name" placeholder="Seu nome e sobrenome" required>
+        <p class="msg-erro" id="erro-nome"></p>
+      </div>
+      <div class="campo">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" autocomplete="email" placeholder="voce@email.com" required>
+        <p class="msg-erro" id="erro-email"></p>
+      </div>
+      <div class="campo">
+        <label for="telefone">WhatsApp com DDD</label>
+        <input type="tel" id="telefone" name="telefone" autocomplete="tel-national" inputmode="numeric" placeholder="(31) 99999-9999" required>
+        <p class="msg-erro" id="erro-telefone"></p>
+      </div>
+      <fieldset>
+        <legend>Em que ponto você está?</legend>
+        <div class="escolhas">
+          <label class="escolha"><input type="radio" name="momento" value="Escolhendo o concurso"><span>Escolhendo o concurso</span></label>
+          <label class="escolha"><input type="radio" name="momento" value="Vou começar a estudar"><span>Vou começar a estudar</span></label>
+          <label class="escolha"><input type="radio" name="momento" value="Já estudo para ele"><span>Já estudo para ele</span></label>
+          <label class="escolha"><input type="radio" name="momento" value="Prova marcada"><span>Prova marcada</span></label>
+        </div>
+        <p class="msg-erro" id="erro-momento"></p>
+      </fieldset>
+      <div class="campo">
+        <label class="aceite" for="aceite"><input type="checkbox" id="aceite" name="aceite" required><span>Aceito receber contato da Mentoria Ártemis por WhatsApp e e-mail, com materiais e novidades sobre concursos. Posso pedir para sair a qualquer momento.</span></label>
+        <p class="msg-erro" id="erro-aceite"></p>
+      </div>
+      <button class="botao" type="submit" id="enviar">Quero meu edital grátis</button>
+      <p class="msg-erro" id="erro-envio"></p>
+      <p class="privacidade">Seus dados são usados só pela Mentoria Ártemis. Nada de spam.</p>
+    </form>
+
+    <div class="sucesso" id="sucesso" hidden>
+      <div class="alvo" aria-hidden="true"></div>
+      <h2>Seu edital está pronto!</h2>
+      <p id="sucesso-texto">Clique no botão abaixo para baixar o PDF.</p>
+      <a class="botao" id="baixar" href="#" target="_blank" rel="noopener">Baixar o edital</a>
+      <button type="button" class="outro" id="outro">Quero outro edital</button>
+    </div>
+  </section>
+</main>
+
+<!-- JANELA DE CONFERÊNCIA: só depois de confirmar os dados é que eles são enviados -->
+<dialog class="confirmar" id="confirmar" aria-labelledby="confirmar-titulo">
+  <h2 id="confirmar-titulo">Confirme seus dados</h2>
+  <p class="aviso">Confira com atenção, principalmente o WhatsApp e o e-mail. É por eles que vamos falar com você.</p>
+  <dl class="dados">
+    <div><dt>Edital</dt><dd id="c-edital"></dd></div>
+    <div><dt>Nome</dt><dd id="c-nome"></dd></div>
+    <div><dt>E-mail</dt><dd id="c-email"></dd></div>
+    <div><dt>WhatsApp</dt><dd id="c-telefone"></dd></div>
+  </dl>
+  <div class="confirmar-acoes">
+    <button class="botao" type="button" id="c-confirmar">Está certo, enviar</button>
+    <button class="botao vazado" type="button" id="c-corrigir">Corrigir dados</button>
+  </div>
+</dialog>
+
+<script>
+/* =========================================================
+   1) CONFIGURAÇÃO DO FORMULÁRIO GOOGLE "Editais Grátis"
+   Os cadastros vão para o Formulário Google da Jéssica, que
+   guarda tudo numa planilha. Enquanto o id começar com
+   COLE_AQUI, a página avisa que ainda está em configuração.
+   ========================================================= */
+const GOOGLE_FORM = {
+  id:      '1FAIpQLSewjtJKhlN58vQUt1TO2SRczQKcU0wbZYmsh0bkxZ3JdH7PYg',
+  edital:  'entry.653050161',    // Qual edital você quer?
+  nome:    'entry.963283555',    // Nome Completo
+  email:   'entry.472753442',    // E-MAIL
+  whatsapp:'entry.153019686',    // WhatsApp com DDD
+  momento: 'entry.1422758550',   // Em que ponto você está?
+  aceite:  'entry.355741170',    // Aceite LGPD
+};
+
+/* =========================================================
+   2) LISTA DE EDITAIS
+   Cada linha é um edital. Para adicionar um, copie uma linha e troque:
+   - codigo: nome curto, sem espaço nem acento (vai no endereço: editais-gratis.html?edital=pmmg)
+   - area:   o nome da pasta no Drive (agrupa a lista)
+   - nome:   o que aparece para a pessoa
+   - link:   onde está o PDF. Pode ser um arquivo da pasta editais do site
+             (ex.: 'editais/pmmg-soldado.pdf') ou um link do Google Drive.
+   Edital com link vazio aparece como "(em breve)" e não pode ser escolhido.
+   As áreas aparecem na lista na ordem em que surgem aqui.
+   ========================================================= */
+const EDITAIS = [
+  // Bancários
+  { codigo: 'bb-comercial',   area: 'Bancários', nome: 'Banco do Brasil · Escriturário · Agente Comercial',    link: 'editais/bb-escriturario-agente-comercial.pdf' },
+  { codigo: 'bb-tecnologia',  area: 'Bancários', nome: 'Banco do Brasil · Escriturário · Agente de Tecnologia', link: 'editais/bb-escriturario-agente-de-tecnologia.pdf' },
+  // Carreiras Policiais
+  { codigo: 'pcmg-delegado',     area: 'Carreiras Policiais', nome: 'PCMG · Delegado de Polícia Substituto',        link: 'editais/pcmg-delegado.pdf' },
+  { codigo: 'pcmg-investigador', area: 'Carreiras Policiais', nome: 'PCMG · Investigador de Polícia I',             link: 'editais/pcmg-investigador.pdf' },
+  { codigo: 'pcmg-perito-1',     area: 'Carreiras Policiais', nome: 'PCMG · Perito Criminal · Área I',              link: 'editais/pcmg-perito-criminal-area-1.pdf' },
+  { codigo: 'pcmg-perito-2',     area: 'Carreiras Policiais', nome: 'PCMG · Perito Criminal · Área II',             link: 'editais/pcmg-perito-criminal-area-2.pdf' },
+  { codigo: 'pcpe-agente',       area: 'Carreiras Policiais', nome: 'PCPE · Agente de Polícia',                     link: 'editais/pcpe-agente.pdf' },
+  { codigo: 'pcpe-delegado',     area: 'Carreiras Policiais', nome: 'PCPE · Delegado de Polícia',                   link: 'editais/pcpe-delegado.pdf' },
+  { codigo: 'pcpe-escrivao',     area: 'Carreiras Policiais', nome: 'PCPE · Escrivão de Polícia',                   link: 'editais/pcpe-escrivao.pdf' },
+  { codigo: 'pmmg-cfo',          area: 'Carreiras Policiais', nome: 'PMMG · CFO 2027 (Oficiais)',                   link: 'editais/pmmg-cfo-2027.pdf' },
+  { codigo: 'pmmg-cfs',          area: 'Carreiras Policiais', nome: 'PMMG · CFS 2027 (Sargentos)',                  link: 'editais/pmmg-cfs-2027.pdf' },
+  { codigo: 'pmmg-cfsd',         area: 'Carreiras Policiais', nome: 'PMMG · CFSd (Soldados)',                       link: 'editais/pmmg-cfsd.pdf' },
+  { codigo: 'pmmg-eap',          area: 'Carreiras Policiais', nome: 'PMMG · EAP 2026 (3º Sargento QPPM e QPE)',     link: 'editais/pmmg-eap-2026.pdf' },
+  { codigo: 'pmmg-farmacia',     area: 'Carreiras Policiais', nome: 'PMMG · Oficial de Saúde · Farmácia (QOS)',     link: 'editais/pmmg-oficial-saude-farmacia.pdf' },
+  { codigo: 'pmpe-tenente',      area: 'Carreiras Policiais', nome: 'PMPE · 2º Tenente (QOPM)',                     link: 'editais/pmpe-2-tenente-qopm.pdf' },
+  { codigo: 'pmpe-soldado',      area: 'Carreiras Policiais', nome: 'PMPE · Soldado (QPMG)',                        link: 'editais/pmpe-soldado.pdf' },
+  { codigo: 'pmsp-soldado',      area: 'Carreiras Policiais', nome: 'PMSP · Aluno-Soldado',                         link: 'editais/pmsp-soldado.pdf' },
+  { codigo: 'pppe-penal',        area: 'Carreiras Policiais', nome: 'Polícia Penal de PE · Policial Penal',         link: 'editais/pppe-policial-penal.pdf' },
+  // Educação
+  { codigo: 'seedf-biologia',   area: 'Educação', nome: 'SEEDF · Professor · Biologia',                      link: 'editais/seedf-professor-biologia.pdf' },
+  { codigo: 'seedf-historia',   area: 'Educação', nome: 'SEEDF · Professor · História',                      link: 'editais/seedf-professor-historia.pdf' },
+  { codigo: 'seedf-ingles',     area: 'Educação', nome: 'SEEDF · Professor · Língua Inglesa',                link: 'editais/seedf-professor-ingles.pdf' },
+  { codigo: 'seedf-portugues',  area: 'Educação', nome: 'SEEDF · Professor · Língua Portuguesa (Letras)',    link: 'editais/seedf-professor-lingua-portuguesa.pdf' },
+  { codigo: 'seedf-matematica', area: 'Educação', nome: 'SEEDF · Professor · Matemática',                    link: 'editais/seedf-professor-matematica.pdf' },
+  // Jurídicos
+  { codigo: 'dpdf-analista', area: 'Jurídicos', nome: 'DPDF · Analista de Apoio à Assistência Judiciária · Cargo 1', link: 'editais/dpdf-analista-cargo-1.pdf' },
+  // Saúde
+  { codigo: 'ms-401-405', area: 'Saúde', nome: 'Ministério da Saúde · Cargos 401 a 405 (nível superior)', link: 'editais/ms-cargos-401-a-405.pdf' },
+  { codigo: 'ms-gestor',  area: 'Saúde', nome: 'Ministério da Saúde · Gestor · Cargo 406',               link: 'editais/ms-gestor-406.pdf' },
+  // Outros
+  { codigo: 'ibge-recenseador', area: 'Outros', nome: 'IBGE · Recenseador (Censo Agropecuário)', link: 'editais/ibge-recenseador.pdf' },
+];
+
+/* ---------- daqui para baixo, não precisa mexer ---------- */
+
+// Transforma o link do Drive em link de download direto
+// (https://drive.google.com/file/d/ID/view  →  https://drive.google.com/uc?export=download&id=ID)
+function linkDeDownload(link) {
+  const achou = link.match(/\/d\/([A-Za-z0-9_-]+)/) || link.match(/[?&]id=([A-Za-z0-9_-]+)/);
+  return achou ? 'https://drive.google.com/uc?export=download&id=' + achou[1] : link;
+}
+
+// Monta a lista de editais, agrupada por área (cada área vira um grupo na lista)
+const campoEdital = document.getElementById('edital');
+const grupos = {};
+EDITAIS.forEach((e) => {
+  if (!grupos[e.area]) {
+    grupos[e.area] = document.createElement('optgroup');
+    grupos[e.area].label = e.area;
+    campoEdital.appendChild(grupos[e.area]);
+  }
+  const opcao = document.createElement('option');
+  opcao.value = e.codigo;
+  opcao.textContent = e.link ? e.nome : e.nome + ' (em breve)';
+  opcao.disabled = !e.link;
+  grupos[e.area].appendChild(opcao);
+});
+
+// Se o endereço tiver ?edital=pmmg, o edital já vem escolhido (bom para links do Instagram)
+const pedido = new URLSearchParams(location.search).get('edital');
+if (pedido && EDITAIS.some((e) => e.codigo === pedido && e.link)) campoEdital.value = pedido;
+
+function editalEscolhido() { return EDITAIS.find((e) => e.codigo === campoEdital.value); }
+
+const form = document.getElementById('formulario');
+const campoTel = document.getElementById('telefone');
+
+// Máscara do telefone: (31) 99999-9999
+campoTel.addEventListener('input', () => {
+  const d = campoTel.value.replace(/\D/g, '').slice(0, 11);
+  let v = d;
+  if (d.length > 2) v = `(${d.slice(0, 2)}) ${d.slice(2)}`;
+  if (d.length > 7) v = `(${d.slice(0, 2)}) ${d.slice(2, d.length - 4)}-${d.slice(-4)}`;
+  campoTel.value = v;
+});
+
+function mostrarErro(id, texto) {
+  document.getElementById('erro-' + id).textContent = texto;
+  const campo = document.getElementById(id);
+  if (campo && campo.closest('.campo')) campo.closest('.campo').classList.toggle('invalido', !!texto);
+}
+
+function validar() {
+  let ok = true;
+  const nome = form.nome.value.trim();
+  const tel = form.telefone.value.replace(/\D/g, '');
+  const email = form.email.value.trim();
+
+  if (!editalEscolhido()) { mostrarErro('edital', 'Escolha o edital que você quer baixar.'); ok = false; } else mostrarErro('edital', '');
+  if (nome.split(/\s+/).length < 2) { mostrarErro('nome', 'Escreva seu nome e sobrenome.'); ok = false; } else mostrarErro('nome', '');
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { mostrarErro('email', 'Confira o e-mail. Ele precisa ter @ e um domínio, como voce@email.com.'); ok = false; } else mostrarErro('email', '');
+  if (tel.length < 10) { mostrarErro('telefone', 'Digite o WhatsApp com DDD, por exemplo (31) 99999-9999.'); ok = false; } else mostrarErro('telefone', '');
+  if (!form.momento.value) { mostrarErro('momento', 'Escolha a opção que mais combina com você.'); ok = false; } else mostrarErro('momento', '');
+  if (!form.aceite.checked) { mostrarErro('aceite', 'Marque esta opção para receber o edital.'); ok = false; } else mostrarErro('aceite', '');
+  return ok;
+}
+
+const janela = document.getElementById('confirmar');
+
+// a) "Quero meu edital": confere os campos e abre a janela de conferência (ainda não envia)
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  document.getElementById('erro-envio').textContent = '';
+  if (!validar()) return;
+  const ed = editalEscolhido();
+  document.getElementById('c-edital').textContent = ed.nome + ' (' + ed.area + ')';
+  document.getElementById('c-nome').textContent = form.nome.value.trim();
+  document.getElementById('c-email').textContent = form.email.value.trim();
+  document.getElementById('c-telefone').textContent = form.telefone.value.trim();
+  janela.showModal();
+});
+
+// b) "Corrigir dados": fecha a janela
+document.getElementById('c-corrigir').addEventListener('click', () => janela.close());
+
+// c) "Está certo, enviar": envia para a planilha e mostra o botão de download
+document.getElementById('c-confirmar').addEventListener('click', async () => {
+  janela.close();
+
+  if (GOOGLE_FORM.id.startsWith('COLE_AQUI')) {
+    document.getElementById('erro-envio').textContent = 'Esta página ainda está sendo configurada. Tente de novo em breve.';
+    return;
+  }
+
+  const ed = editalEscolhido();
+  const dados = new FormData();
+  dados.append(GOOGLE_FORM.nome, form.nome.value.trim());
+  dados.append(GOOGLE_FORM.email, form.email.value.trim());
+  dados.append(GOOGLE_FORM.whatsapp, form.telefone.value.trim());
+  dados.append(GOOGLE_FORM.edital, ed.nome + ' (' + ed.area + ')');
+  dados.append(GOOGLE_FORM.momento, form.momento.value);
+  dados.append(GOOGLE_FORM.aceite, 'Sim, em ' + new Date().toLocaleString('pt-BR'));
+
+  const botao = document.getElementById('enviar');
+  botao.disabled = true;
+  botao.textContent = 'Enviando...';
+  try {
+    await fetch(`https://docs.google.com/forms/d/e/${GOOGLE_FORM.id}/formResponse`, { method: 'POST', mode: 'no-cors', body: dados });
+    document.getElementById('sucesso-texto').textContent = 'O edital de ' + ed.nome + ' está pronto. Clique no botão abaixo para baixar o PDF.';
+    document.getElementById('baixar').href = linkDeDownload(ed.link);
+    form.hidden = true;
+    document.getElementById('sucesso').hidden = false;
+  } catch (erro) {
+    document.getElementById('erro-envio').textContent = 'Não foi possível enviar agora. Confira sua internet e tente de novo.';
+  }
+  botao.disabled = false;
+  botao.textContent = 'Quero meu edital grátis';
+});
+
+// d) "Quero outro edital": volta ao formulário com os dados já preenchidos; só falta trocar o edital
+document.getElementById('outro').addEventListener('click', () => {
+  document.getElementById('sucesso').hidden = true;
+  form.hidden = false;
+  campoEdital.value = '';
+  campoEdital.focus();
+});
+</script>
+</body>
+</html>
